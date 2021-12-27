@@ -1,0 +1,22 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Aguilera Matias",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "faker": "^5.5.3",
+    "moment": "^2.29.1",
+    "socket.io": "^4.3.2",
+    "normalizr": "^3.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
