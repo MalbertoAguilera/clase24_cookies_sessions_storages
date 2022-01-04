@@ -20,6 +20,7 @@ const path = require ("path");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.set("view engine", "ejs");
 
 app.use(session(objectSession));
@@ -69,7 +70,7 @@ app.get("/home", (req, res) => {
     return res.redirect("/login");
   }
 
-  res.render(path.join(process.cwd(), "/views/pages/home.ejs"), {
+  res.render(path.join(process.cwd(), "public/index.ejs"), {
     nombre: req.session.nombre,
   });
 });
@@ -79,7 +80,7 @@ app.get('/login', (req, res) => {
   if (nombre) {
       res.redirect('/')
   } else {
-      res.sendFile(path.join(process.cwd(), '/views/login.html'))
+      res.sendFile(path.join(process.cwd(), 'public/views/login.html'))
   }
 })
 
@@ -93,7 +94,7 @@ app.get('/logout', (req, res) => {
   if (nombre) {
       req.session.destroy(err => {
           if (!err) {
-              res.render(path.join(process.cwd(), '/views/pages/logout.ejs'), { nombre })
+              res.render(path.join(process.cwd(), 'public/views/pages/logout.ejs'), { nombre })
           } else {
               res.redirect('/')
           }
